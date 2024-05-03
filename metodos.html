@@ -119,60 +119,104 @@ Para ello, partimos de un intervalo [a,b] arbitrario, que contenga una única ra
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.2/math.js" integrity="sha512-34c+czbe1JJMtTH6ebtsJdIa1K3lNsxDC92M3PBI0bACg7nu+DhHwfRS2Zc2qtbyPWKHLTgoxsMrArG4Myx4AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         
-          <form id="bisection-form">
-    <label for="function-input">f(x):</label>
-    <input type="text" id="function-input" required><br><br>
+        <form id="bisection-form">
+          <label for="function-input">Función:</label>
+          <input type="text" id="function-input" required>
+          <br> <br>
+      
+          <label for="start-input">a:</label>
+          <input type="number" id="start-input" required>
+          <br> <br>
+          <label for="end-input">b:</label>
+          <input type="number" id="end-input" required>
+          <br> <br>
+          <button type="submit">Calcular</button>
+          <button type="reset" onclick="limpiarDatos()">Limpiar</button> <!-- Botón para limpiar los valores y la tabla -->
+        </form>
+      
+        <canvas id="chart"></canvas>
+      
+        <div id="result"></div> <!-- Elemento para mostrar el resultado -->
+      
+        <table id="table">
+          <thead>
+            <tr>
+              <th>Iteración</th>
+              <th>Xa</th>
+              <th>Xr</th>
+              <th>Xb</th>
+              <th>Error aproximado</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      
+        <script>
+          function limpiarDatos() {
+            document.getElementById('table-body').innerHTML = ''; // Limpiar la tabla
+            document.getElementById('result').innerHTML = ''; // Limpiar el resultado
+            var ctx = document.getElementById('chart').getContext('2d');
+            if (window.myChart) {
+              window.myChart.destroy(); // Limpiar la gráfica anterior si existe
+            }
+          }
+      
+          document.getElementById('bisection-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+      
+            // Obtener los valores ingresados por el usuario
+            var functionInput = document.getElementById('function-input').value;
+            var startInput = parseFloat(document.getElementById('start-input').value);
+            var endInput = parseFloat(document.getElementById('end-input').value);
+      
+            // Realizar los cálculos utilizando el método de bisección
+            var iterations = 10; // Número de iteraciones
+            var tableBody = document.getElementById('table-body');
+            tableBody.innerHTML = ''; // Limpiar la tabla antes de cada cálculo
+      
+            var xa = startInput;
+            var xb = endInput;
+            var xr, fxa, fxr, fxb, error;
+            var iterationValues = [];
+            for (var i = 1; i <= iterations; i++) {
+              xr = (xa + xb) / 2;
+              fxa = eval(functionInput.replace(/x/g, xa));
+              fxr = eval(functionInput.replace(/x/g, xr));
+              fxb = eval(functionInput.replace(/x/g, xb));
+              error = Math.abs((xr - xa) / xr) * 100;
+              iterationValues.push({ x: xr, y: fxr });
+              // Agregar fila a la tabla
+              var row = document.createElement('tr');
+              row.innerHTML = `
+                <td>${i}</td>
+                <td>${xa}</td>
+                <td>${xr}</td>
+                <td>${xb}</td>
+                <td>${error.toFixed(7)}</td>
+              `;
+              tableBody.appendChild(row);
+      
+              // Actualizar los valores de xa y xb para la siguiente iteración
+              if (fxa * fxr < 0) {
+                xb = xr;
+              } else {
+                xa = xr;
+              }
+            }
+      
+            // Mostrar el resultado del método de bisección
+            var resultElement = document.getElementById('result');
+            resultElement.innerHTML = `Resultado del método de bisección:<br>
+            xr = ${xr}<br>
+            f(xr) = ${fxr}<br>
+            Error = ${error.toFixed(7)}%`;
 
-    <label for="start-input">a:</label>
-    <input type="number" id="start-input" required><br><br>
-
-    <label for="end-input">b:</label>
-    <input type="number" id="end-input" required><br><br>
-
-    <button type="submit">Calcular</button>
-    <button type="reset" onclick="limpiarDatos()">Limpiar</button> <!-- Botón para limpiar los valores y la tabla -->
-  </form>
-
-  <canvas id="chart"></canvas>
-
-  <script>
-    function limpiarDatos() {
-      var ctx = document.getElementById('chart').getContext('2d');
-      if (window.myChart) {
-        window.myChart.destroy(); // Limpiar la gráfica anterior si existe
-      }
-    }
-
-    document.getElementById('bisection-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      // Obtener los valores ingresados por el usuario
-      var functionInput = document.getElementById('function-input').value;
-      var startInput = parseFloat(document.getElementById('start-input').value);
-      var endInput = parseFloat(document.getElementById('end-input').value);
-
-      // Realizar los cálculos utilizando el método de bisección
-      var iterations = 10; // Número de iteraciones
-
-      var xa = startInput;
-      var xb = endInput;
-      var xr, fxa, fxr, fxb, error;
-      var iterationValues = [];
-      for (var i = 1; i <= iterations; i++) {
-        xr = (xa + xb) / 2;
-        fxa = eval(functionInput.replace(/x/g, xa));
-        fxr = eval(functionInput.replace(/x/g, xr));
-        fxb = eval(functionInput.replace(/x/g, xb));
-        error = Math.abs((xr - xa) / xr) * 100;
-        iterationValues.push({ x: xr, y: fxr });
-
-        // Actualizar los valores de xa y xb para la siguiente iteración
-        if (fxa * fxr < 0) {
-          xb = xr;
-        } else {
-          xa = xr;
-        }
-      }
+      // Mostrar el resultado del método de bisección
+      var resultElement = document.getElementById('result');
+      resultElement.innerHTML = `Resultado del método de bisección:<br>
+      xr = ${xr}<br>
+      f(xr) = ${fxr}<br>
+      Error = ${error.toFixed(7)}%`;
 
       // Crear y mostrar la gráfica resultante utilizando Chart.js
       var ctx = document.getElementById('chart').getContext('2d');
@@ -307,4 +351,4 @@ Para ello, partimos de un intervalo [a,b] arbitrario, que contenga una única ra
 </body>
 
 
-</html>
+                </html>
