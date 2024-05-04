@@ -98,12 +98,7 @@ header{
     font-weight: 800;
     font-size: 35px;
 }
-p {
-    color: rgb(255, 255, 255);
-    width: 1450px;
-    border: 2px solid black;
-    background-color: #c93d33;
-  }
+
 
  
 
@@ -135,73 +130,4 @@ img:hover{
 body{
     background: var(--bg-color);
     color: var(--text-color);
-}
-
-@media(max-width: 1770px){
-    header{
-        padding: 22px 4%;
-    }
-    .iconos{
-        padding: 0 4%;
-    }
-    .scroll{
-        right: 4%;
-    }
-}
-
-@media(max-width: 1670px){
-    :root{
-        --big-font: 5.5rem;
-        --p-font: 15px;
-    }
-}
-
-@media(max-width: 1370px){
-    .iconos{
-        display: none;
-    }
-    section{
-        padding: 0 4%;
-    }
-}
-
-@media(max-width: 1150px){
-    :root{
-        --big-font: 4.6rem;
-    }
-    .price{
-        font-size: 20px;
-    }
-    .btn{
-        padding: 10px 23px;
-    }
-}
-
-@media(max-width: 950px){
-    #menu{
-        display: block;
-    }
-    .navlist{
-        position: absolute;
-        width: 100%;
-        height: 100vh;
-        padding: 100px 50px;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 100%;
-        display: flex;
-        flex-direction: column;
-        backdrop-filter: blur(32px);
-        transition: all .6s ease-in-out;
-    }
-    .navlist a{
-        display: block;
-        padding: 0;
-        margin: 0px 0px 25px 0px;
-        font-size: 1.7rem;
-    }
-    .navlist.open{
-        left: 0;
-    }
 }
