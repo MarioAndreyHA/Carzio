@@ -160,8 +160,44 @@
 </div>
 </div>
 <br><br><br>
-
-<h2>Diccionario de datos</h2>
+<h1>Descripion diagrama nivel 1</h1>
+<br>
+</center>
+<ul align="justify" style="margin-left: 20px; margin-right: 20px;">
+    <center><li><strong>Usuarios (Clientes)</strong></center>
+      <ul>
+       <br> <li>Los clientes interactúan con el sistema mediante el pedido.</li>
+        <li>Para que se pueda validar el pedido se necesitan los datos del cliente y del vehículo.</li>
+        <li>Una vez se valide el pedido se verifica el inventario y se continúa en la parte de "Pedidos Pendientes".</li>
+      </ul>
+    </li>
+    <br>
+    <li><strong>Pedidos Pendientes:</strong>
+      <ul>
+        <li>Obtiene la validación del pedido y manda el número del pedido.</li>
+      </ul>
+    </li>
+    <br>
+    <li><strong>Envíos:</strong>
+      <ul>
+        <li>En esta parte es cuando ya fue aceptado el pedido y solo queda obtener la dirección de envío y gestionar el envío para que este llegue al cliente correctamente.</li>
+      </ul>
+    </li>
+<br>
+<center>
+    <li ><strong>Administrador</strong></center>
+      <ul>
+        <br><li><strong>Gestionar Contenido:</strong> El administrador puede añadir, eliminar o modificar coches en los catálogos.</li>
+        <br><li><strong>Gestionar Pedidos:</strong> El administrador puede ver y gestionar los pedidos realizados por los clientes.</li>
+        <br><li><strong>Administrar y verificar el inventario:</strong> El administrador podrá gestionar la existencia de vehículos así como también podrá verificar esta misma.</li>
+      </ul>
+    </li>
+  </ul>
+<br><br>  
+<hr style="margin-left: 20px; margin-right: 20px;">
+<br>
+<center>
+<h1>Diccionario de datos</h1><br>
 <table >
     <tr>
       <th>Nombre del Flujo</th>
