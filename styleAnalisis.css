@@ -122,7 +122,8 @@ img:hover{
 :root{
     --bg-color: #0c0c0c;
     --text-color: #fff;
-    --main-color: #c74d19;
+    --main-color:   #00c2de;
+    ;
     --big-font: 6.6rem;
     --p-font: 1rem;
 }
@@ -141,12 +142,14 @@ table {
   }
   
   table, td {
-    border: 1px solid rgb(240, 135, 49);
+    border: 1px solid #00c2de;
+    ;
     
     text-align: left;
   }
   
   th {
-    background-color: rgb(240, 135, 49);
+    background-color:      #00c2de;
+    
     text-align: center;
   }
