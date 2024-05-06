@@ -3,83 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carzio</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-
-    <link rel="stylesheet"
-    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-  
-    <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
-    rel="stylesheet"
-  />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-      
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  
+   
+    <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" 
+    crossorigin="anonymous"
+    />
+
+   <link rel="stylesheet" type="text/css" href="style.css"/>
+  <title>Carzio</title>
 </head>
 <body>
     
     <header>
-        <a href="#" class="logo"></a>
-        <img src="Logo_Final.png" height="100" width="280">
-
-        <ul class="navlist">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="analisis.html">Analisis</a></li>
-                <li><a href="metodos.html">Metodos</a></li>
-                <li><a href="arquitectura.html">Arquitectura</a></li>
-                
-        </ul>
-
-        <div class="right-content">
-            <a href="#" class="nav-btn">Sign In</a>
-            <div class="bx bx-menu" id="menu"></div>
-        </div>
+        <span class="year">....</span>
+        <a href="/" class="logo"><img src="imagenes/CARZIO logo.png" alt="logo"></a>
+        <a href="#" class="menu" onclick="toggleMenu()"></a>
     </header>
 
-    <section class="titulo">
-        <div class="titulo-text">
-            <h5 data-aos="fade-right", data-aos-duration="1400">#El carro de tus sueños</h5>
-           <center><h1 data-aos="zoom-in-left", data-aos-duration="1400" data-aos-delay="200">Bienvenido a Carzio</h1>
-            <p data-aos="fade-right", data-aos-duration="1400" data-aos-delay="300">Encuentra el Auto de tus sueños
-            </p></center>
+    <div class="banner">
+        <ul class="nav">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="analisis.html">Analisis</a></li>
+            <li><a href="metodos.html">Metodos</a></li>
+            <li><a href="arquitectura.html">Arquitectura</a></li>
+        </ul>
 
-                <div class="titulo-btn" data-aos="flip-down", data-aos-duration="1400" data-aos-delay="300">
-                    <a href="#" class="btn">Catalogo</a>
-                </div>
+        <div class="bg-video-list">
+            <video class="bg-video mclaren-1 active"
+            src="imagenes/mclaren-1.mp4"
+            autoplay
+            toop
+            muted
+            ></video>
+
+            <video class="bg-video mclaren-2"
+            src="imagenes/mclaren-2.mp4"
+            autoplay
+            toop
+            muted
+            ></video>
+
+            <video class="bg-video mclaren-3"
+            src="imagenes/mclaren-3.mp4"
+            autoplay
+            toop
+            muted
+            ></video>
+
+            <video class="bg-video mclaren-4"
+            src="imagenes/mclaren-4.mp4"
+            autoplay
+            toop
+            muted
+            ></video>
+
+            <video class="bg-video mclaren-5"
+            src="imagenes/mclaren-5.mp4"
+            autoplay
+            toop
+            muted
+            ></video>
         </div>
 
-        <div class="titulo-img" data-aos="zoom-in", data-aos-duration="1400">
-            <img src="imagenes/carro fondo.png" alt="">
+        <div class="content">
+            <h3 class="model mclaren-1 active">Spider</h3>
+            <h3 class="model mclaren-2" style="color: #92ff00;">Artura</h3>
+            <h3 class="model mclaren-3" style="color: #ff0015;">750s</h3>
+            <h3 class="model mclaren-4" style="color: #ff2e00;">Lt</h3>
+            <h3 class="model mclaren-5" style="color: #bbc0dd;">MCL35</h3>
+           <br><br> 
+            <a href="#">Contactanos</a>
         </div>
+<br><br>
 
-    </section>
-       
-    <div class="iconos">
-        <a href="#" data-aos="fade-in", data-aos-duration="1400" data-aos-delay="600"><i class="ri-facebook-fill"></i></a>
-        <a href="#" data-aos="fade-in", data-aos-duration="1400" data-aos-delay="700"><i class="ri-instagram-line"></i></a>
-        <a href="#" data-aos="fade-in", data-aos-duration="1400" data-aos-delay="800"><i class="ri-whatsapp-line"></i></a>
+        <div class="gallery">
+            <div class="carousel">
+                <a class="carousel-item" href="#" onclick="changeVideo('mclaren-1');">
+                    <img src="imagenes/mclaren-1.jpg" alt="">
+                    <h4>SPIDER</h4>
+                </a>
+                <a class="carousel-item" href="#"  onclick="changeVideo('mclaren-2');">
+                    <img src="imagenes/mclaren-2.jpg" alt="">
+                    <h4 style="color: #92ff00;">ARTURA</h4>
+                </a>
+                <a class="carousel-item" href="#"  onclick="changeVideo('mclaren-3');">
+                    <img src="imagenes/mclaren-3.jpeg" alt="">
+                    <h4 style="color: #ff0015;">750S</h4>
+                </a>
+                <a class="carousel-item" href="#"  onclick="changeVideo('mclaren-4');">
+                    <img src="imagenes/mclaren-4.jpeg" alt="">
+                    <h4 style="color: #ff2e00;">LT</h4>
+                </a>
+                <a class="carousel-item" href="#"  onclick="changeVideo('mclaren-5');">
+                    <img src="imagenes/mclaren-5.jpeg" alt="">
+                    <h4 style="color: #bbc0dd;">MCL35</h4>
+                </a>
+            </div>
+        </div>
     </div>
-
-    <div class="scroll" data-aos="zoom-out-down", data-aos-duration="1400" data-aos-delay="550>
-        <a href="#">
-            <i class="ri-scroll-to-bottom-line"></i>
-            Scroll Down
-        </a>
-
-    </div>
-
-
+    <ul class="sci">
+        <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+        <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+        <li><a href="#"><i class="bi bi-whatsapp"></i></a></li>
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="script.js"></script>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        offset:1,
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('.carousel').carousel();
       });
     </script>
+<br><br>
 </body>
 </html>
