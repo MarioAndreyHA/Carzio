@@ -1,150 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
-
 *{
-    margin: 0;
     padding: 0;
-    box-sizing: border-box;   
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
 }
 
 :root{
-    --primary: #00c2de;
+    --bg-color: #0c0c0c;
+    --text-color: #fff;
+    --main-color: #c74d19;
+    --big-font: 6.6rem;
+    --p-font: 1rem;
+}
+*{
+    font-family: "Roboto", sans-serif;
 }
 
-body {
-    background: #000000;
-    font-family: 'Roboto', sans-serif;
+body{
+    font-family: "Roboto", sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 
 header{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 100px;
+    font-family: "Roboto", sans-serif;
+    position: fixed;
+    width: 110%;
+    top: -5%;
+    right: 0;
     z-index: 1000;
-}
-
-header::after {
-    position: absolute;
-    content: '';
-    top: 50%;
-    transform: translateY(-50%);
-    left: 80px;
-    height: 5px;
-    width: 40%;
-    background: linear-gradient(90deg, var(--primary),transparent);
-}
-
-.logo {
-    font-size: 30px;
-    color: #ffffff;
-}
-
-.logo img {
-    max-width: 200px;
-    filter: invert(1);
-    align-content: center;
-}
-
-
-
-header .menu {
-    position: relative;
-    height: 30px;
-    width: 30px;
-    background: url(imagenes/menu-3-fill.png) no-repeat;
-    background-size: 30px;
-    background-position: center;
-    filter: invert(1);
-    cursor: pointer;
-}
-
-header .menu.active {
-    position: relative;
-    height: 30px;
-    width: 30px;
-    background: url(imagenes/close-line.png) no-repeat;
-    background-size: 30px;
-    background-position: center;
-    filter: invert(1);
-    cursor: pointer;
-}
-
-.nav {
-    z-index: 200;
-    position: absolute;
-    right: 80px;
-    top: 0;
-    width: 30%;
-    height: 15px;
-    border-bottom: 5px solid;
-    border-image: linear-gradient(
-        90deg, 
-        transparent, 
-        var(--primary), 
-        var(--primary)
-        )
-        30;
-        background: transparent;
-        box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(20px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: 1s;
-        transform-origin: right;
-}
-
-.nav.active {
-    top: 100px;
-    width: 40%;
-    height: 100px;
-    border-top: 5px solid;
-    border-image: linear-gradient(
-        90deg, 
-        transparent, 
-        var(--primary), 
-        var(--primary),
-        transparent
-        )
-        30;
-    border-bottom: none;
-}
-
-.nav li{
-    position: relative;
-    list-style: none;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-100px);
-    transition: 0.5s;
-}
-
-.nav.active li {
-    transform: translateY(0);
-    visibility: visible;
-    opacity: 1;
-}
-
-.nav li a {
-    text-decoration: none;
-    display: inline-flex;
+    padding: 35px 7%;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    text-transform: uppercase;
-    font-weight: 200;
-    letter-spacing: 1px;
-    padding: 8px 20px;
-    transition: 0.2s;
-    cursor: pointer;
+    justify-content: space-between;
+    transition: all .50s ease;
 }
 
-.nav li a:hover {
-    box-shadow: inset 0 0 20px rgba(0, 194, 222, 0.5);
+.logo img{
+    width: 100%;
+    height: auto;
+}
+
+.navlist{
+    display: flex;
+}
+
+.navlist a{
+    display: inline-block;
+    margin: 0 35px;
+    color: var(--text-color);
+    font-size: var(--p-font);
+    transition: all .6s ease;
+}
+
+.navlist a:hover{
+    color: var(--main-color);
+}
+
+.right-content{
+    display: flex;
+    align-items: center;
+}
+
+.nav-btn{
+    display: inline-block;
+    padding: 9px 24px;
+    background: transparent;
+    border: 2px solid var(--text-color);
+    border-radius: 7px;
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 500;
+    transition: all .6s ease;
+}
+
+.nav-btn:hover{
+    transform: translateY(-5px);
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+}
+
+#menu{
+    font-size: 42px;
+    z-index: 10001;
+    cursor: pointer;
+    margin-left: 25px;
+    display: none;
 }
 
 h1{
@@ -156,7 +99,7 @@ h1{
 }
 
 p{
-    color: ##ffffff;
+    color: #fff;
     text-align: center;
     font-family: "Roboto", sans-serif;
     font-size: 20px;
@@ -187,6 +130,48 @@ ol{
     font-size: 20px;
 }
 
+.logo {
+    font-size: 30px;
+    color: #ffffff;
+    display: inline-block;
+    margin-right: auto;
+  }
+  
+  .logo img {
+    max-height: 40px;
+    max-width: 150px;
+    filter: invert(1);
+    align-content: left;
+    margin-right: 90px;
+  }
+  
+  .menu-nav {
+    background-color: black; 
+    color: white; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    padding: 10px 0; 
+    z-index: 1000;
+    text-align: center;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 50px;
+  }
+  
+  .menu-nav a {
+    color: white; 
+    text-decoration: none; 
+    margin: 0 20px; 
+    font-weight: 500;
+  }
+  
+  .menu-nav a:hover {
+    color: #4070F4;
+  }
+  
   h1{
     padding-top: 100px;
   }
@@ -320,48 +305,7 @@ footer .menu
     }
   }
 
-
-  @media (max-width: 1200px) {
-    header{
-        padding: 20px 50px;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 5px;
-
-    }
-    header::after{
-        left: 50%;
-        top: 70%;
-        transform: translate(-50%, -50%);
-        background: var(--primary);
-    }
-
-    .logo {
-        margin-top: 10px;
-    }
-
-    .nav {
-        right: 0;
-        width: 100%;
-    }
-
-    .nav.active {
-        right: 0;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        border: none;
-    }
-
-    .banner {
-        padding: 50px 30px 100px;
-    }
-}
-
-img{
+  img{
     margin: 50px;
   }
 
