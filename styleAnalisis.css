@@ -13,6 +13,7 @@
 body {
     background: #000000;
     font-family: 'Roboto', sans-serif;
+    color: #ffffff;
 }
 
 header{
@@ -351,3 +352,22 @@ footer .menu
         background-position-x: 1000px;
 }
 }
+
+table{
+    
+    border-color: #00c2de;
+    width: 97%;
+    
+}
+th{
+    background-color:#00c2de ;
+    color: #0c0c0c;
+   
+}
+
+
+th,td{
+    padding: .8rem;
+    border:1px solid #00c2de;
+}
+
