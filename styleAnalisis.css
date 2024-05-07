@@ -148,45 +148,7 @@ header .menu.active {
     box-shadow: inset 0 0 20px rgba(0, 194, 222, 0.5);
 }
 
-@media (max-width: 1200px) {
-    header{
-        padding: 20px 50px;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 5px;
 
-    }
-    header::after{
-        left: 50%;
-        top: 70%;
-        transform: translate(-50%, -50%);
-        background: var(--primary);
-    }
-
-    .logo {
-        margin-top: 10px;
-    }
-
-    .nav {
-        right: 0;
-        width: 100%;
-    }
-
-    .nav.active {
-        right: 0;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        border: none;
-    }
-
-    .banner {
-        padding: 50px 30px 100px;
-    }
-}
 
 #menu{
     font-size: 42px;
@@ -207,7 +169,7 @@ img:hover{
 table{
     
     border-color: #00c2de;
-    width: 97%;
+    width: 95%;
     
 }
 th{
@@ -236,7 +198,7 @@ nav.menu-nav a {
   }
   .logo {
     width: 30%; 
-    margin: 0 auto;
+    margin: 0 auto;
   }
 }
 
@@ -353,21 +315,62 @@ footer .menu
 }
 }
 
-table{
-    
-    border-color: #00c2de;
-    width: 97%;
-    
-}
-th{
-    background-color:#00c2de ;
-    color: #0c0c0c;
-   
-}
 
+@media (max-width: 1200px) {
+    header{
+        padding: 20px 50px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
 
-th,td{
-    padding: .8rem;
-    border:1px solid #00c2de;
+    }
+    header::after{
+        left: 50%;
+        top: 70%;
+        transform: translate(-50%, -50%);
+        background: var(--primary);
+    }
+
+    .logo {
+        margin-top: 10px;
+        
+    }
+
+    .nav {
+        right: 0;
+        width: 100%;
+    }
+
+    .nav.active {
+        right: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        border: none;
+    }
+
+    .banner {
+        padding: 50px 30px 100px;
+    }
+
+     h1 {
+        font-size: 15px;
+     }
+
+      .box img{
+        width: 70%;
+        height: 70%;
+     }
+
+     table {
+        size-adjust: auto;
+       
+     }
+     
+     body {
+        border: 0;
+     }
 }
-
