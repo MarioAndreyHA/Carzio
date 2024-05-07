@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styleMetodos.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="imagenes/icon-math_87982.ico" type="ico">
     <title>Método de Bisección</title>
 </head>
 
 <body>
-   <nav class="menu-nav">
-    <a href="index.html"> Inicio</a>
-    <a href="#metodo">Metodo de Bisección</a>
-    <a href="#calculadora">Calculadora</a>
-    <a href="#metodos">Pseudocodigo</a>
-    <a href="#footer"> Contactanos</a>
-   </nav>
+    <nav class="menu-nav">
+        <a class="logo"><img src="imagenes/CARZIO logo.png" alt="logo"></a>
+        <a href="index.html"> Inicio</a>
+        <a href="metodos.html">Métodos Numéricos</a>
+        <a href="analisis.html">Análisis de Sistemas</a>
+        <a href="arquitectura.html">Arquitectura de Computadoras</a>
+        <a href="contactanos.html">Contáctanos</a>
+       </nav>
 
    <header class="inicio">
     <h1>Método de Bisección</h1>
@@ -27,18 +25,17 @@
 
 <br>
 <section id="metodo">
-<h2>¿Qué es el Método de Bisección?</h2> <br>
+<h2>¿Qué es el Método de Bisección?</h2> 
 <p>El método de Bisección está basado en un concepto muy sencillo, que consiste en tomar un intervalo que encierre la raíz que deseamos calcular, luego subdivimos dicho intervalo por la mitad y tomamos el sub-intervalo que contiene la raíz, descartando la otra mitad que no la contiene. Repitiendo este proceso podemos obtener el valor de la raíz con la precisión que deseemos.
 Para ello, partimos de un intervalo [a,b] arbitrario, que contenga una única raíz real de la función. Es de hacer notar que este método no permite hallar raíces dobles, debido a que este tipo de raíces toca de manera tangencial el eje de las x, por otra parte este método,  no es capaz de diferenciar entre una raíz y una singularidad.
 </p>
 <br>
 <br>
 <center><img src="imagenes/biseccion07.png" width="500" height="380"></center>
+<p class="nota">Imagen 1: Representación gráfica del Método de Bisección</p>
 <br>
 <br>
 <h2>Explicación paso a paso:</h2>
-<br>
-<br>
 <ul>
     <li><b> Paso 1:</b> Elija las conjeturas iniciales a, b y la tasa de tolerancia e.</li>
     <li><b> Paso 2:</b> Si f(a)f(b) >=0, entonces la raíz no se encuentra en este intervalo. Por tanto, no habrá solución.</li>
@@ -53,89 +50,110 @@ Para ello, partimos de un intervalo [a,b] arbitrario, que contenga una única ra
     
 </ul>
 <br>
-<h2>Ejemplo del método de bisección</h2>
-<br><br>
-<ul>
-    <li>Tenemos que encontrar la raíz de la siguiente función: <b>( f(x) = x^3 - x^2 + 2)</b></li>
-    <li>
-        <b>Paso 1:</b> Asumamos
-        <ul>
-            <li>a = -10,</li>
-            <li>b = 10, y</li>
-            <li>e = 1% o 0.01</li>
-        </ul>
-    </li>
-
-    <li>
-        <b>Paso 2:</b> Ahora comprobaremos si  f(a)f(b)>=0.
-        <ul>
-            <li>f(a) = f(-10) = (-10)^3 – (-10)^2 + 2 = -1098</li>
-            <li>f(b) = f(10) = (10)^3 – (10)^2 + 2 = 902</li>
-            <li>f(a)f(b) = f(-10)f(10) = (-1098)(902) < 0</li>
-        </ul>
-        Por tanto, la raíz de la función anterior se encuentra en este intervalo ([-10, 10]).
-    </li>
-
-    <li>
-        <b>Paso 3:</b> Entonces se calculará primero el punto medio c.
-       <br><br>
-        <center> <img src="imagenes/Cap1.png" width="150"></center><br>
-        <ul>
-            <li>(1.) si  f(c) = 0
-                <ul>
-                    <li>f(c) = f(0) = (0)^3 – (0)^2 + 2 = 2 ≠ 0</li>
-                </ul>
-            </li>
-            <li>(2. ) si ( f(a)f(c) < 0 ):
-                <ul>
-                    <li>f(c)f(a) = 2*(-1098) &lt; 0</li>
-                </ul>
-            </li>
-        </ul>
-        La condición se cumple. Para la próxima iteración, los valores serán,
-        <ul>
-            <li>una = -10</li>
-            <li>segundo = c = 0</li>
-        </ul>
-    </li>
-
-    <li>
-        <b>Paso 4:</b> Como ( (b-a) = (0-(-10)) = 10 > 0.05), se repetirá el proceso. Las siguientes iteraciones se muestran en la tabla.
-        <br><br>
-        <center><img src="imagenes/Capt2.png" width="500"></center>
-    </li>
-<br>
-    <li>
-      <b>Paso 5:</b> En la undécima iteración, la condición del paso 11 será falsa. Por tanto, la raíz de esta ecuación es -4  
-    </li>
-</ul>
-
-
+<section id="metodos">
+    <center>
+    <h2>Pseudocodigo:</h2>
+    <pre>
+    Proceso MetodoBiseccion
+        Definir PRECISION, INTERVALOS como Entero
+        PRECISION <- 6
+        INTERVALOS <- 10
+    
+        Escribir "Calculo de las raices de una funcion aplicando el metodo de la biseccion"
+    
+        Definir a, b, tolerancia, xr como Real
+    
+        Escribir "Ingrese el intervalo inicial [a, b]"
+        Escribir "a = "
+        Leer a
+    
+        Escribir "b = "
+        Leer b
+    
+        imprimePuntos(a, b)
+    
+        Escribir "Escoja el intervalo adecuado"
+        Escribir "a = "
+        Leer a
+    
+        Escribir "b = "
+        Leer b
+    
+        Si (f(a) * f(b) > 0) Entonces
+            Escribir "No se puede aplicar el metodo de la biseccion"
+            Escribir "porque f(", a, ") y f(", b, ") tienen el mismo signo"
+        Sino
+            Escribir "Tolerancia = "
+            Leer tolerancia
+            Escribir "a\tb\tx\tf(a)\t\tf(b)\t\tf(x)"
+    
+            Hacer
+                xr <- (a + b) / 2.0
+                Escribir a, "\t", b, "\t", xr, "\t", f(a), "\t", f(b), "\t", f(xr)
+    
+                Si (Abs(f(xr)) <= tolerancia) Entonces
+                    Escribir "Para una tolerancia ", tolerancia, " la raiz de f es ", xr
+                    Detener
+                Sino
+                    Si (f(xr) * f(a) > 0) Entonces
+                        a <- xr
+                    Sino
+                        b <- xr
+                    Fin Si
+                Fin Si
+            Mientras (Verdadero)
+        Fin Si
+    FinProceso
+    
+    Funcion f(x: Real) -> Real
+        Retornar Exp(-1 * x) - Cos(3 * x) - 0.5
+    FinFuncion
+    
+    Proceso imprimePuntos(a: Real, b: Real)
+        Definir puntos como Entero
+        puntos <- INTERVALOS + 1
+        Definir ancho como Real
+        ancho <- (b - a) / INTERVALOS
+    
+        Escribir ""
+        Escribir "x\tf(x)"
+    
+        Para i <- 0 Hasta puntos-1 Con Paso 1 Hacer
+            Escribir a, "\t", f(a)
+            a <- a + ancho
+        FinPara
+    FinProceso
+</pre>
+<h2>Diagrama de Flujo</h2>
+    <img src="imagenes/Diagrama.png" height="450px" width="700px">
+    <br><br><br>
+</section>
+  
+<section id="calculadora" style="text-align: center;">
+    <h2>Calculadora</h2>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.2/math.js" integrity="sha512-34c+czbe1JJMtTH6ebtsJdIa1K3lNsxDC92M3PBI0bACg7nu+DhHwfRS2Zc2qtbyPWKHLTgoxsMrArG4Myx4AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <form id="bisection-form" style="display: inline-block; text-align: center;">
+      <label for="function-input">F(x):</label>
+      <input type="text" id="function-input" required>
+      <br> <br>
+  
+      <label for="start-input">a:</label>
+      <input type="number" id="start-input" required>
+      <br> <br>
+      <label for="end-input">b:</label>
+      <input type="number" id="end-input" required>
+      <br> <br><br>
+      <button type="submit">Calcular</button>
+      <button type="reset" onclick="limpiarDatos()">Limpiar</button> <!-- Botón para limpiar los valores y la tabla -->
+    </form>
 </section>
 
-  
-    <section id="calculadora">
-      <h2>Calculadora</h2>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.2/math.js" integrity="sha512-34c+czbe1JJMtTH6ebtsJdIa1K3lNsxDC92M3PBI0bACg7nu+DhHwfRS2Zc2qtbyPWKHLTgoxsMrArG4Myx4AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        
-        <form id="bisection-form">
-          <label for="function-input">Función:</label>
-          <input type="text" id="function-input" required>
-          <br> <br>
-      
-          <label for="start-input">a:</label>
-          <input type="number" id="start-input" required>
-          <br> <br>
-          <label for="end-input">b:</label>
-          <input type="number" id="end-input" required>
-          <br> <br>
-          <button type="submit">Calcular</button>
-          <button type="reset" onclick="limpiarDatos()">Limpiar</button> <!-- Botón para limpiar los valores y la tabla -->
-        </form>
-      
-        <canvas id="chart"></canvas>
-      
+<center>
+      <section>
+        <canvas id="chart" width="300" height="200"></canvas>
+      <br>
         <div id="result"></div> <!-- Elemento para mostrar el resultado -->
       
         <table id="table">
@@ -229,126 +247,57 @@ Para ello, partimos de un intervalo [a,b] arbitrario, que contenga una única ra
             data: iterationValues,
             borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1,
-            pointRadius: 5, // Tamaño de los puntos en la gráfica
+            pointRadius: 3, // Tamaño de los puntos en la gráfica
             pointBackgroundColor: 'rgba(75, 192, 192, 1)' // Color de los puntos en la gráfica
           }]
         },
         options: {
-          scales: {
-            x: {
-              type: 'linear',
-              position: 'bottom'
-            },
-            y: {
-              type: 'linear',
-              position: 'left'
-            }
-          }
+    aspectRatio: 1, /* Set aspect ratio to 1 for a square graph */
+    scales: {
+      x: {
+        type: 'linear',
+        position: 'bottom'
+      },
+      y: {
+        type: 'linear',
+        position: 'left'
+      }
+        }
         }
       });
     });
   </script>
     </section>
-
-    <br>
-    <br>
-
-    <section id="metodos">
-        <center>
-        <h2>Pseudocodigo:</h2>
-        <pre>
-        Proceso MetodoBiseccion
-            Definir PRECISION, INTERVALOS como Entero
-            PRECISION <- 6
-            INTERVALOS <- 10
-        
-            Escribir "Calculo de las raices de una funcion aplicando el metodo de la biseccion"
-        
-            Definir a, b, tolerancia, xr como Real
-        
-            Escribir "Ingrese el intervalo inicial [a, b]"
-            Escribir "a = "
-            Leer a
-        
-            Escribir "b = "
-            Leer b
-        
-            imprimePuntos(a, b)
-        
-            Escribir "Escoja el intervalo adecuado"
-            Escribir "a = "
-            Leer a
-        
-            Escribir "b = "
-            Leer b
-        
-            Si (f(a) * f(b) > 0) Entonces
-                Escribir "No se puede aplicar el metodo de la biseccion"
-                Escribir "porque f(", a, ") y f(", b, ") tienen el mismo signo"
-            Sino
-                Escribir "Tolerancia = "
-                Leer tolerancia
-                Escribir "a\tb\tx\tf(a)\t\tf(b)\t\tf(x)"
-        
-                Hacer
-                    xr <- (a + b) / 2.0
-                    Escribir a, "\t", b, "\t", xr, "\t", f(a), "\t", f(b), "\t", f(xr)
-        
-                    Si (Abs(f(xr)) <= tolerancia) Entonces
-                        Escribir "Para una tolerancia ", tolerancia, " la raiz de f es ", xr
-                        Detener
-                    Sino
-                        Si (f(xr) * f(a) > 0) Entonces
-                            a <- xr
-                        Sino
-                            b <- xr
-                        Fin Si
-                    Fin Si
-                Mientras (Verdadero)
-            Fin Si
-        FinProceso
-        
-        Funcion f(x: Real) -> Real
-            Retornar Exp(-1 * x) - Cos(3 * x) - 0.5
-        FinFuncion
-        
-        Proceso imprimePuntos(a: Real, b: Real)
-            Definir puntos como Entero
-            puntos <- INTERVALOS + 1
-            Definir ancho como Real
-            ancho <- (b - a) / INTERVALOS
-        
-            Escribir ""
-            Escribir "x\tf(x)"
-        
-            Para i <- 0 Hasta puntos-1 Con Paso 1 Hacer
-                Escribir a, "\t", f(a)
-                a <- a + ancho
-            FinPara
-        FinProceso
-    </pre>
-    <h2>Diagrama de Flujo</h2>
-    <br>
-    <br>
-        <img src="imagenes/Diagrama.png">
-        <br><br><br>
-    </section>
     </center>
     <br>
     <br>
     <br>
+    <br>  <br>
     <br>
-    <footer id="footer">
-        <p>Universidad Autónoma del Estado de Hidalgo</p>
-        <p>Métodos Numéricos</p>
-        <p>5TO1</p>
-        <p>Integrantes:</p>
-        <p>Gudiño Méndez Vania Celeste</p>
-        <p>Flores Sosa Jordi Krisber</p>
-        <p>Hernández Abrego Mario Andrey</p>
-        <p>Reyli Goethe</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer>
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+       <ul class="social_icon">
+        <li><a href="https://www.facebook.com/share/NDSL3t2zTHjd1LoD/?mibextid=qi2Omg"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="https://marioandreyha.github.io/Carzio/"><ion-icon name="logo-github"></ion-icon></a></li>
+       </ul> 
+       <ul class="menu">
+       <li><a href="#">Inicio</a></li>
+       <li><a href="#">Contáctanos</a></li>
+       </ul>
+       <p>@2024 Universidad Autónoma del Estado de Hidalgo</p>
+    
     </footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
-
-                </html>
+ </html>
