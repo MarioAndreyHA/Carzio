@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styleAnalisis.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Analisis</title>
 </head>
 <body>
@@ -44,7 +45,7 @@
 </div>
 <hr style="margin-left: 20px; margin-right: 20px;">
 <div class="box"><br><h1>Objetivos</h1><br><br>
-    <table>
+    <table >
         <tr>
           <td>1.</td>
           <td>Mejorar la eficiencia y la efectividad del proceso de ventas, hasta el cierre de la venta y la entrega del vehículo.</td>
@@ -66,8 +67,7 @@
 </div>
     </div>
     <div class="box"><br><h1>Funciones y Actividades</h1><br><br>
-        <table style="margin-left: 20px; margin-right: 20px; border: 1px solid #00c2de;
-        ;">
+        <table , style="margin-left: 20px; margin-right: 20px; border: 1px solid #00c2de;">
             <tr>
                 <th >Funciones</th>
                 <th >Actividades</th>
@@ -145,6 +145,50 @@
         </div> </div>
         <hr style="margin-left: 20px; margin-right: 20px;">
         
+        <div class="box"><br><h1>Diagrama de Casos de Uso</h1><br><br>
+          <img src="imagenes/DiagramaCasosUsoCarzio.png" alt="">
+          <br><br><br>
+          <hr style="margin-left: 20px; margin-right: 20px;"><br>
+          <ul align="justify" style="margin-left: 20px; margin-right: 20px;">
+            <center><li><strong>Usuarios (Clientes)</strong></center>
+              <ul>
+               <br> <li> Los clientes interactúan con el sistema de varias maneras: </li>
+               <br>
+                <li>Puede ver el catalogo de productos</li>
+                  <li> Solicitar detalles de un producto</li>
+                    <li> Solicitar el vehículo deseado</li>
+                      <li> Contactar con el soporte</li>
+                        <li>Solicitar una compra, ver los detalles de la compra y realizar el pago vez se valide el pedido se verifica el inventario y se continúa en la parte de "Pedidos Pendientes".</li>
+                      
+                    
+                    
+                 
+                      </ul>
+            </li>
+            <br><br>
+            <hr style="margin-left: 20px; margin-right: 20px;"><br>
+            <center><li><strong>Administrador :</strong></center>
+              <br><br>
+              <ul>
+                <li>Gestiona los productos</li>
+                <li> Solicita información de los clientes</li>
+                  <li> Valida los datos</li>
+              </ul>
+            </li>
+            <br>
+            <br>
+            <hr style="margin-left: 20px; margin-right: 20px;"><br>
+            <center><li><strong>Vendedor :</strong></center>
+              <br><br>
+              <ul>
+                <li>Contactar cliente</li>
+                <li>Hacer contrato</li>
+              </ul>
+            </li>
+        <br>
+        <br>
+          </ul>
+          <hr style="margin-left: 20px; margin-right: 20px;">
     <div class="box"><br><h1>Diagrama de contexto</h1><br><br>
         <img src="imagenes/Diagrama de contexto.png" alt="">
             <div class="organigrama">
@@ -162,7 +206,7 @@
 </div>
 <br><br><br>
 <h1>Descripion diagrama nivel 1</h1>
-<br>
+<br><br>
 </center>
 <ul align="justify" style="margin-left: 20px; margin-right: 20px;">
     <center><li><strong>Usuarios (Clientes)</strong></center>
@@ -184,8 +228,8 @@
         <li>En esta parte es cuando ya fue aceptado el pedido y solo queda obtener la dirección de envío y gestionar el envío para que este llegue al cliente correctamente.</li>
       </ul>
     </li>
-<br>
-<center>
+<br><br>
+<center><hr style="margin-left: 20px; margin-right: 20px;"><br>
     <li ><strong>Administrador</strong></center>
       <ul>
         <br><li><strong>Gestionar Contenido:</strong> El administrador puede añadir, eliminar o modificar coches en los catálogos.</li>
@@ -197,33 +241,45 @@
 <br><br>  
 <hr style="margin-left: 20px; margin-right: 20px;">
 <br>
+
 <center>
+
 <h1>Diccionario de datos</h1><br>
+
 <table >
+  <thead></thead>
     <tr>
       <th>Nombre del Flujo</th>
-      <td>Pedido</td>
-    </tr>
-    <tr>
       <th>Estructura</th>
-      <td>
-        Pedido del cliente = Número del cliente + Nombre del cliente + Dirección + Teléfono + Número de catálogo + Fecha del pedido + {Artículos disponibles para el pedido} + Total de las mercancías + Total del pedido + Forma de pago + (Tipo de tarjeta de crédito) + (Número de tarjeta de crédito)
-      </td>
+      <th>Descripción</th>
     </tr>
     <tr>
-      <th>Descripción</th>
-      <td>Este proceso permite al cliente seleccionar un coche del catálogo y realizar un pedido para comprarlo.</td>
+      <tbody>
+      <td >Pedido</td>
+      <td >
+        Pedido del cliente = Número del cliente + Nombre del cliente + Dirección + Teléfono + Número de catálogo + Fecha del pedido + {Artículos disponibles para el pedido} + Total de las mercancías + Total del pedido + Forma de pago + (Tipo de tarjeta de crédito) + (Número de tarjeta de crédito)
+      </td> 
+      <td >Este proceso permite al cliente seleccionar un coche del catálogo y realizar un pedido para comprarlo.</td>
     </tr>
+    <tr>
+      
+    
+    </tr>
+  </tbody>
   </table>
 <br><br>
+
   <table >
+<thead>
     <tr>
       <th>Nombre del Flujo</th>
-      <td>Facturacion</td>
+       <th>Estructura</th> 
+       <th>Descripción</th>
     </tr>
     <tr>
-      <th>Estructura</th>
-      <td>
+     </thead><tbody>
+      <td >Facturacion</td>
+      <td >
         Detalles Facturación = {<br>
         Número del Cliente+<br>
         Nombre del Cliente+<br>
@@ -239,21 +295,29 @@
         Número de Tarjeta de Crédito<br>
         }
       </td>
+      <td >Este proceso implica la generación y gestión de la factura para los pedidos realizados por los clientes. Captura detalles esenciales y los detalles de pago.</td>
     </tr>
     <tr>
-      <th>Descripción</th>
-      <td>Este proceso implica la generación y gestión de la factura para los pedidos realizados por los clientes. Captura detalles esenciales y los detalles de pago.</td>
+     
+      
     </tr>
+  </tbody>
   </table>
+
 <br><br>
-  <table>
+
+  <table >
+    <thead>
     <tr>
       <th>Nombre del Flujo</th>
-      <td>Detalles Coches</td>
+       <th>Estructura</th> 
+       <th>Descripción</th>
     </tr>
     <tr>
-      <th>Estructura</th>
-      <td>
+     </thead>
+     <tbody>
+      <td >Detalles Coches</td>
+      <td >
         Detalle Coche = {<br>
         Marca+<br>
         Modelo+<br>
@@ -263,21 +327,30 @@
         Precio<br>
         }
       </td>
+      <td > Estos datos comprenden la información detallada sobre cada vehículo disponible para la venta en el sistema.</td>
     </tr>
     <tr>
-      <th>Descripción</th>
-      <td>Estos datos comprenden la información detallada sobre cada vehículo disponible para la venta en el sistema.</td>
+     
+      
     </tr>
+  </tbody>
   </table>
+
   <br><br>
-  <table>
+
+  <table >
+    <thead>
     <tr>
       <th>Nombre del Flujo</th>
-      <td>Datos Cliente</td>
-    </tr>
-    <tr>
       <th>Estructura</th>
-      <td>
+      <th>Descripción</th>
+     
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+       <td >Datos Cliente</td>
+       <td >
         Datos Cliente = {<br>
         Nombre+<br>
         Dirección+<br>
@@ -286,11 +359,12 @@
         Historial de compras<br>
         }
       </td>
+      <td >Estos datos comprenden la información personal y de contacto de cada individuo que interactúa con el sistema de ventas de coches.</td>
+    </tr>
     </tr>
     <tr>
-      <th>Descripción</th>
-      <td>Estos datos comprenden la información personal y de contacto de cada individuo que interactúa con el sistema de ventas de coches.</td>
-    </tr>
+      </tbody>
+      
   </table>
   
 </center>
