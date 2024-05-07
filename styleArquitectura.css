@@ -360,3 +360,38 @@ footer .menu
         padding: 50px 30px 100px;
     }
 }
+
+img{
+    margin: 50px;
+  }
+
+  video{
+    margin: 50px;
+  }
+
+  table{
+    margin: 50px;
+	background-color: rgb(0, 0, 0);
+	text-align: center;
+	border-collapse: collapse;
+	width: 75%;
+}
+
+th, td{
+	padding: 20px;
+}
+
+thead{
+	background-color: #3586ff;
+	border-bottom: solid 5px #ffffff;
+	color: white;
+}
+
+tr:nth-child(even){
+	background-color: #000000;
+}
+
+tr:hover td{
+	background-color: #179bc4;
+	color: white;
+}
