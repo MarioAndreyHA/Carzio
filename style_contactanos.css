@@ -241,47 +241,6 @@ footer .wave#wave4{
       background-position-x: 1000px;
   }
 }
-.logo {
-  font-size: 30px;
-  color: #ffffff;
-  display: inline-block;
-  margin-right: auto;
-}
-
-.logo img {
-  max-height: 40px;
-  max-width: 150px;
-  filter: invert(1);
-  align-content: left;
-  margin-right: 90px;
-}
-
-.menu-nav {
-  background-color: black; 
-  color: white; 
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  width: 100%;
-  padding: 10px 0; 
-  z-index: 1000;
-  text-align: center;
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  height: 50px;
-}
-
-.menu-nav a {
-  color: white; 
-  text-decoration: none; 
-  margin: 0 20px; 
-  font-weight: 500;
-}
-
-.menu-nav a:hover {
-  color: #4070F4;
-}
 
 h1{
   padding-top: 100px;
