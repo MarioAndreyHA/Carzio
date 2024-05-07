@@ -143,7 +143,7 @@ Para ello, partimos de un intervalo [a,b] arbitrario, que contenga una única ra
       <input type="number" id="end-input" required>
       <br> <br><br>
       <button type="submit">Calcular</button>
-      <button type="reset" onclick="limpiarDatos()">Limpiar</button> <!-- Botón para limpiar los valores y la tabla -->
+      <button type="reset" onclick="limpiarDatos()">Limpiar</button>
     </form>
 </section>
 
@@ -151,7 +151,7 @@ Para ello, partimos de un intervalo [a,b] arbitrario, que contenga una única ra
       <section>
         <canvas id="chart" width="300" height="200"></canvas>
       <br>
-        <div id="result"></div> <!-- Elemento para mostrar el resultado -->
+        <div id="result"></div> 
       
         <table id="table">
           <thead>
@@ -168,26 +168,25 @@ Para ello, partimos de un intervalo [a,b] arbitrario, que contenga una única ra
       
         <script>
           function limpiarDatos() {
-            document.getElementById('table-body').innerHTML = ''; // Limpiar la tabla
-            document.getElementById('result').innerHTML = ''; // Limpiar el resultado
+            document.getElementById('table-body').innerHTML = ''; 
+            document.getElementById('result').innerHTML = ''; 
             var ctx = document.getElementById('chart').getContext('2d');
             if (window.myChart) {
-              window.myChart.destroy(); // Limpiar la gráfica anterior si existe
+              window.myChart.destroy();
             }
           }
       
           document.getElementById('bisection-form').addEventListener('submit', function(event) {
             event.preventDefault();
       
-            // Obtener los valores ingresados por el usuario
             var functionInput = document.getElementById('function-input').value;
             var startInput = parseFloat(document.getElementById('start-input').value);
             var endInput = parseFloat(document.getElementById('end-input').value);
       
-            // Realizar los cálculos utilizando el método de bisección
-            var iterations = 10; // Número de iteraciones
+           
+            var iterations = 10;
             var tableBody = document.getElementById('table-body');
-            tableBody.innerHTML = ''; // Limpiar la tabla antes de cada cálculo
+            tableBody.innerHTML = ''; 
       
             var xa = startInput;
             var xb = endInput;
@@ -200,7 +199,7 @@ Para ello, partimos de un intervalo [a,b] arbitrario, que contenga una única ra
               fxb = eval(functionInput.replace(/x/g, xb));
               error = Math.abs((xr - xa) / xr) * 100;
               iterationValues.push({ x: xr, y: fxr });
-              // Agregar fila a la tabla
+           
               var row = document.createElement('tr');
               row.innerHTML = `
                 <td>${i}</td>
@@ -211,7 +210,7 @@ Para ello, partimos de un intervalo [a,b] arbitrario, que contenga una única ra
               `;
               tableBody.appendChild(row);
       
-              // Actualizar los valores de xa y xb para la siguiente iteración
+            
               if (fxa * fxr < 0) {
                 xb = xr;
               } else {
@@ -219,21 +218,20 @@ Para ello, partimos de un intervalo [a,b] arbitrario, que contenga una única ra
               }
             }
       
-            // Mostrar el resultado del método de bisección
+           
             var resultElement = document.getElementById('result');
             resultElement.innerHTML = `Resultado del método de bisección:<br>
             xr = ${xr}<br>
             f(xr) = ${fxr}<br>
             Error = ${error.toFixed(7)}%`;
 
-      // Mostrar el resultado del método de bisección
       var resultElement = document.getElementById('result');
       resultElement.innerHTML = `Resultado del método de bisección:<br>
       xr = ${xr}<br>
       f(xr) = ${fxr}<br>
       Error = ${error.toFixed(7)}%`;
 
-      // Crear y mostrar la gráfica resultante utilizando Chart.js
+     
       var ctx = document.getElementById('chart').getContext('2d');
       window.myChart = new Chart(ctx, {
         type: 'line',
@@ -244,12 +242,12 @@ Para ello, partimos de un intervalo [a,b] arbitrario, que contenga una única ra
             data: iterationValues,
             borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1,
-            pointRadius: 3, // Tamaño de los puntos en la gráfica
-            pointBackgroundColor: 'rgba(75, 192, 192, 1)' // Color de los puntos en la gráfica
+            pointRadius: 3,
+            pointBackgroundColor: 'rgba(75, 192, 192, 1)'
           }]
         },
         options: {
-    aspectRatio: 1, /* Set aspect ratio to 1 for a square graph */
+    aspectRatio: 1,
     scales: {
       x: {
         type: 'linear',
